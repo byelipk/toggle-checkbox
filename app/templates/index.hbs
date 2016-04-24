@@ -1,0 +1,18 @@
+<p>
+  {{one-way-checkbox
+      checked=checkAll
+      update=(action "checkAll")}}
+  <label for="toggle-all">Toggle All:</label>
+</p>
+
+<ul>
+  {{#each model as |color|}}
+    {{checkbox-item
+        model=color
+        checkAll=checkAll
+        force=force
+        register=(action "register")
+        unregister=(action "unregister")
+        did-update-is-checked=(action "sync")}}
+  {{/each}}
+</ul>
