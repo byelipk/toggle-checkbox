@@ -36,7 +36,7 @@ export default Ember.Component.extend({
   },
 
   actions: {
-    update(value) {
+    updateIsChecked(value) {
       this.set('isChecked', value);
       this.sendAction('did-update-is-checked', this);
     }

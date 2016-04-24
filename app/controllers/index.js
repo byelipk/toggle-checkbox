@@ -19,7 +19,7 @@ export default Ember.Controller.extend({
       this.get('checkboxes').removeObject(box);
     },
 
-    checkAll(value, force) {
+    updateCheckAll(value, force) {
       this.setProperties({
         checkAll: value,
         force: force === undefined ? !value : force
@@ -29,7 +29,7 @@ export default Ember.Controller.extend({
     sync(value) {
       let checkEach = this.get('checkboxes').isEvery('isChecked', true);
       if (checkEach !== !!this.get('checkAll')) {
-        this.send('checkAll', checkEach, false);
+        this.send('updateCheckAll', checkEach, false);
       }
     }
 
